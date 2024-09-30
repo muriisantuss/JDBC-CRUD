@@ -3,6 +3,7 @@ package main;
 import java.util.Scanner;
 import CRUD.Menu;
 import CRUD.Create;
+import CRUD.Delete;
 
 public class Main {
 	public static void main(String[] args) {
@@ -24,6 +25,8 @@ public class Main {
 				case 3:
 					break;
 				case 4:
+					System.out.println("Deleting a product...");
+					Delete.show();
 					break;
 				case 5:
 					System.out.println("Exiting...");
