@@ -1,29 +1,39 @@
 package main;
 
-import entity.Product;
-import productDao.productDAO;
+import java.util.Scanner;
+import CRUD.Menu;
+import CRUD.Create;
 
 public class Main {
 	public static void main(String[] args) {
-		System.out.println("Hello World");
-		Product p = new Product();
-		p.setSku("Sku");
-		p.setDescription("Description");
-		p.setPrice("Price");
-		p.setMaxDiscount(1);
-		p.setStock(123);
+		Scanner in = new Scanner(System.in);
+		int choice;
 
+		do {
+			System.out.println("Choose an operation");
+			// show options menu
+			Menu.show();
+			choice = in.nextInt();
+			switch (choice) {
+				case 1:
+					System.out.println("Creating a product...");
+					Create.show();
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+				case 4:
+					break;
+				case 5:
+					System.out.println("Exiting...");
+					break;
+				default:
+					System.out.println("Invalid choice! Please enter a number between 1 and 5.");
+					break;
+			}
+		} while (choice != 5);
 
-		new productDAO().registrationUser(p);
-
-
-				
-		p.setSku("a");
-		p.setDescription("b");
-		p.setPrice("Pc");
-		p.setMaxDiscount(1);
-		p.setStock(123);
-		
-		new productDAO().registrationUser(p);
+		in.close();
 	}
 }
