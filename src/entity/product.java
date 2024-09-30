@@ -1,18 +1,16 @@
 package entity;
 
-public class product {
-  private int id;
-  private int sku;
+public class Product {
+  private String sku;
   private String description;
   private String price;
   private int maxDiscount;
   private int stock;
 
-  public product() {
+  public Product() {
   }
 
-  public product(int id, int sku, String description, String price, int maxDiscount, int stock) {
-    this.id = id;
+  public Product(String sku, String description, String price, int maxDiscount, int stock) {
     this.sku = sku;
     this.description = description;
     this.price = price;
@@ -20,19 +18,11 @@ public class product {
     this.stock = stock;
   }
 
-  public int getId() {
-    return id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
-  }
-
-  public int getSku() {
+  public String getSku() {
     return sku;
   }
 
-  public void setSku(int sku) {
+  public void setSku(String sku) {
     this.sku = sku;
   }
 
