@@ -1,15 +1,18 @@
 package productDao;
 
-// import java.sql.Connection;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
+import java.sql.ResultSet;
+import java.util.List;
+import java.sql.Statement;
 import config.DatabaseConnection;
 import entity.Product;
 
-public class productDAO {
+public class ProductDAO {
   public void create(Product product) {
-    String sql = "INSERT INTO crud.tablecrud (sku,description,price,maxDiscount,stock) VALUES (?, ?, ?, ?, ?)";
+    String sql = "INSERT INTO `tableclud` (sku,description,price,maxDiscount,stock) VALUES (?, ?, ?, ?, ?)";
 
     PreparedStatement state = null;
     try {
@@ -28,12 +31,12 @@ public class productDAO {
   }
 
   public void delete(Product product) {
-    String sql = "DELETE FROM crud.tablecrud WHERE sku = ?";
+    String sql = "DELETE FROM `tableclud` WHERE id = ?";
 
     PreparedStatement state = null;
     try {
       state = DatabaseConnection.getConnection().prepareStatement(sql);
-      state.setString(1, product.getSku());
+      state.setInt(1, product.getId());
       int rowsAffected = state.executeUpdate();
 
       if (rowsAffected > 0) {
@@ -45,4 +48,36 @@ public class productDAO {
       e.printStackTrace();
     }
   }
+
+  public List<Product> read() {
+    List<Product> products = new ArrayList<>();
+    String sql = "SELECT * FROM `tableclud`";
+
+    Statement state = null;
+    ResultSet resultSet = null;
+
+    try {
+      state = DatabaseConnection.getConnection().createStatement();
+      resultSet = state.executeQuery(sql);
+
+      while (resultSet.next()) {
+        Product p = new Product();
+
+        p.setId(resultSet.getInt("id"));
+        p.setSku(resultSet.getString("sku"));
+        p.setDescription(resultSet.getString("description"));
+        p.setPrice(resultSet.getString("price"));
+        p.setMaxDiscount(resultSet.getInt("maxDiscount"));
+        p.setStock(resultSet.getInt("stock"));
+
+        products.add(p);
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+
+    }
+
+    return products;
+  }
+
 }

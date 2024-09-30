@@ -1,6 +1,7 @@
 package entity;
 
 public class Product {
+  private int id;
   private String sku;
   private String description;
   private String price;
@@ -16,6 +17,14 @@ public class Product {
     this.price = price;
     this.maxDiscount = maxDiscount;
     this.stock = stock;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
   }
 
   public String getSku() {

@@ -2,6 +2,7 @@ package main;
 
 import java.util.Scanner;
 import CRUD.Menu;
+import CRUD.Read;
 import CRUD.Create;
 import CRUD.Delete;
 
@@ -11,16 +12,18 @@ public class Main {
 		int choice;
 
 		do {
-			System.out.println("Choose an operation");
 			// show options menu
 			Menu.show();
 			choice = in.nextInt();
+			System.out.println();
 			switch (choice) {
 				case 1:
 					System.out.println("Creating a product...");
 					Create.show();
 					break;
 				case 2:
+					System.out.println("Listing products...");
+					Read.show();
 					break;
 				case 3:
 					break;

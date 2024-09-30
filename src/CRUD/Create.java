@@ -3,7 +3,7 @@ package CRUD;
 import java.util.Scanner;
 
 import entity.Product;
-import productDao.productDAO;
+import productDao.ProductDAO;
 
 public class Create {
   public static void show() {
@@ -25,7 +25,7 @@ public class Create {
     System.out.print("Stock: ");
     create.setStock(in.nextInt());
 
-    new productDAO().create(create);
+    new ProductDAO().create(create);
 
   }
 }

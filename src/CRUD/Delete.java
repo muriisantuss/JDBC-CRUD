@@ -3,7 +3,7 @@ package CRUD;
 import java.util.Scanner;
 
 import entity.Product;
-import productDao.productDAO;
+import productDao.ProductDAO;
 
 public class Delete {
   public static void show() {
@@ -11,8 +11,8 @@ public class Delete {
     Scanner in = new Scanner(System.in);
 
     System.out.print("Enter with SKU to delete of the product: ");
-    delete.setSku(in.nextLine());
+    delete.setId(in.nextInt());
 
-    new productDAO().delete(delete);
+    new ProductDAO().delete(delete);
   }
 }
