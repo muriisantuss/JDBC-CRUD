@@ -1,8 +1,12 @@
 package main;
 
 import java.util.Scanner;
+
+import com.mysql.cj.jdbc.result.UpdatableResultSet;
+
 import CRUD.Menu;
 import CRUD.Read;
+import CRUD.Uptade;
 import CRUD.Create;
 import CRUD.Delete;
 
@@ -26,6 +30,8 @@ public class Main {
 					Read.show();
 					break;
 				case 3:
+					System.out.println("Updating products...");
+					Uptade.show();
 					break;
 				case 4:
 					System.out.println("Deleting a product...");

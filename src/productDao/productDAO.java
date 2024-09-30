@@ -80,4 +80,21 @@ public class ProductDAO {
     return products;
   }
 
+  public void uptade(Product product) {
+    String sql = "UPDATE `tableclud` SET sku = ?, description = ?, price = ?, maxDiscount = ?, stock = ? WHERE id = ?";
+    PreparedStatement state = null;
+    try {
+      state = DatabaseConnection.getConnection().prepareStatement(sql);
+      state.setString(1, product.getSku());
+      state.setString(2, product.getDescription());
+      state.setString(3, product.getPrice());
+      state.setInt(4, product.getMaxDiscount());
+      state.setInt(5, product.getStock());
+      state.setInt(6, product.getId());
+
+      state.executeUpdate();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+  }
 }
