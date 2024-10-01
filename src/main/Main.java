@@ -2,7 +2,6 @@ package main;
 
 import java.util.Scanner;
 
-import com.mysql.cj.jdbc.result.UpdatableResultSet;
 
 import CRUD.Menu;
 import CRUD.Read;
